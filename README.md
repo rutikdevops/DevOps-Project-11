@@ -1,4 +1,6 @@
 # DevSecOps : Netflix Clone CI-CD with Monitoring | Email
+![DEVOPS](https://github.com/rutikdevops/DevOps-Project-11/assets/109506158/9fabe5eb-790f-40ac-9fc5-05f1b48cae33)
+
 
 # Project Blog link :-
 # Project Overview :-
