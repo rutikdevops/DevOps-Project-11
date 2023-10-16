@@ -848,7 +848,8 @@ kubectl get svc #use anyone
 
 
 
-
+# Project Reference :
+- https://youtu.be/pbGA-B_SCVk?feature=shared
 
 
 
