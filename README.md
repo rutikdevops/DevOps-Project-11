@@ -344,6 +344,59 @@ http://<ip>:9090/targets
 ```
 
 
+- Install Grafana on Ubuntu 22.04
+- To visualize metrics we can use Grafana. There are many different data sources that Grafana supports, one of them is Prometheus.
+- First, let's make sure that all the dependencies are installed.
+```bash
+sudo apt-get install -y apt-transport-https software-properties-common
+```
+
+- Next, add the GPG key.
+```bash
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+```
+
+- Add this repository for stable releases.
+```bash
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+```
+
+
+- After you add the repository, update and install Garafana.
+```bash
+sudo apt-get update
+sudo apt-get -y install grafana
+```
+
+- To automatically start the Grafana after reboot, enable the service.
+```bash
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+sudo systemctl status grafana-server
+```
+
+- Go to http://<ip>:3000 and log in to the Grafana using default credentials. The username is admin, and the password is admin as well.
+```bash
+username admin
+password admin
+```
+
+- To visualize metrics, you need to add a data source first.
+- Click Add data source and select Prometheus.
+- For the URL, enter localhost:9090 and click Save and test. You can see Data source is working.
+- Let's add Dashboard for a better view
+- Click on Import Dashboard paste this code 1860 and click on load
+- Select the Datasource and click on Import
+- You will see this output
+
+
+
+
+
+
+
+
+
 
 
 
