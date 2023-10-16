@@ -390,27 +390,49 @@ password admin
 - You will see this output
 
 
+# Step 5 :
+- Install the Prometheus Plugin and Integrate it with the Prometheus server
+- Let's Monitor JENKINS SYSTEM
+- Need Jenkins up and running machine
+- Goto Manage Jenkins --> Plugins --> Available Plugins
+- Search for Prometheus and install it
+- Once that is done you will Prometheus is set to /Prometheus path in system configurations
+- Nothing to change click on apply and save
+- To create a static target, you need to add job_name with static_configs. go to Prometheus server
 
+```bash
+sudo vim /etc/prometheus/prometheus.yml
+```
 
+- Paste below code
+```bash
+  - job_name: 'jenkins'
+    metrics_path: '/prometheus'
+    static_configs:
+      - targets: ['<jenkins-ip>:8080']
+```
 
+- Before, restarting check if the config is valid.
+```bash
+promtool check config /etc/prometheus/prometheus.yml
+```
 
+- Then, you can use a POST request to reload the config.
+```bash
+curl -X POST http://localhost:9090/-/reload
+``
 
+- Check the targets section
+```bash
+http://<ip>:9090/targets
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-You will see Jenkins is added to it
+- Let's add Dashboard for a better view in Grafana
+- Click On Dashboard --> + symbol --> Import Dashboard
+- Use Id 9964 and click on load
+- Select the data source and click on Import
+- Now you will see the Detailed overview of Jenkins
 
 
 
